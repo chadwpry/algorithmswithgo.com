@@ -1,16 +1,25 @@
 package module01
 
-func charactersToSet(chars string) map[int]string {
+func genDecToStrMap(chars string) map[int]string {
 	output := make(map[int]string, len(chars))
-	for i, char := range chars {
-		output[i] = string(char)
+	for i, rn := range chars {
+		output[i] = string(rn)
+	}
+	return output
+}
+
+func genStrToDecMap(chars string) map[string]int {
+	output := make(map[string]int, len(chars))
+	for i, rn := range chars {
+		output[string(rn)] = i
 	}
 	return output
 }
 
 var (
-	characters                = "0123456789ABCDEF" // GHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
-	charSet    map[int]string = charactersToSet(characters)
+	characters                 = "0123456789ABCDEF" // GHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+	decToStrMap map[int]string = genDecToStrMap(characters)
+	strToDecMap map[string]int = genStrToDecMap(characters)
 )
 
 // DecToBase will return a string representing
@@ -26,5 +35,5 @@ func DecToBase(dec, base int) string {
 		return ""
 	}
 
-	return DecToBase(dec/base, base) + charSet[dec%base]
+	return DecToBase(dec/base, base) + decToStrMap[dec%base]
 }
