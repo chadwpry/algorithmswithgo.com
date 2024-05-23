@@ -15,21 +15,23 @@ func TestGCD(t *testing.T) {
 		{30, 15, 15},
 		{30, 9, 3},
 		{100, 9, 1},
-		// Sometimes it is easier to produce test cases by
-		// writing out how each value is derived. In this case
-		// numbers are composed of prime factors and the
-		// common prime factors should be present in the answer
-		// so writing test cases this way makes them easier to
-		// verify visually.
+		// // Sometimes it is easier to produce test cases by
+		// // writing out how each value is derived. In this case
+		// // numbers are composed of prime factors and the
+		// // common prime factors should be present in the answer
+		// // so writing test cases this way makes them easier to
+		// // verify visually.
 		{
 			2 * 2 * 3 * 3 * 5,
 			2 * 3 * 5 * 7 * 13,
 			2 * 3 * 5,
-		}, {
+		},
+		{
 			2 * 2 * 3 * 3 * 13,
 			2 * 3 * 5 * 7 * 13,
 			2 * 3 * 13,
-		}, {
+		},
+		{
 			2 * 3 * 5 * 7 * 11 * 13 * 17 * 19,
 			3 * 3 * 7 * 7 * 11 * 11 * 17 * 17,
 			3 * 7 * 11 * 17,
